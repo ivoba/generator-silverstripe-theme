@@ -1,0 +1,10 @@
+{
+  "name": "silverstripe-theme-<%= _.slugify(themeName) %>",
+  "version": "0.0.0",
+  "dependencies": {
+    "modernizr": "~2.6.2",
+    "jquery": "~1.10.2",
+    "ribs": "~1.0.8"
+  }
+}
+

@@ -1,0 +1,15 @@
+@import '_variables.scss';
+@import 'ribs/src/scss/Ribs.scss';
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+footer{
+  .copyright{
+    text-align: right;
+  }
+}
