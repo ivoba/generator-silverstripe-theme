@@ -1,5 +1,6 @@
 @import '_variables.scss';
-@import 'ribs/src/scss/Ribs.scss';
+<% if (framework == 'ribs') { %>@import 'ribs/src/scss/Ribs.scss';<% } %>
+<% if (framework == 'foundation') { %>@import 'foundation/scss/foundation.scss';<% } %>
 
 .browsehappy {
   margin: 0.2em 0;

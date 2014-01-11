@@ -38,14 +38,12 @@
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
-<div class="container clearfix">
-    <% include Header %>
-    <div class="main" role="main">
-        <div class="inner typography line">
-            $Layout
-        </div>
+<% include Header %>
+<div class="row" role="main">
+    <div class="large-12 columns">
+        $Layout
     </div>
-    <% include Footer %>
 </div>
+<% include Footer %>
 </body>
 </html>

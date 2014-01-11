@@ -53,6 +53,8 @@ The default grunt task is ```watch``` which will run ```compass watch```.
 
 - tests
 - Foundation theme
+- unfuddle jquery dependency since foundation 5 requires jquery2
+- different foundation versions
 - Bootstrap theme
 - theme choice
 - make ftpush optional
