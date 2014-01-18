@@ -1,6 +1,6 @@
 # generator-silverstripe-theme [![Build Status](https://secure.travis-ci.org/ivoba/generator-silverstripe-theme.png?branch=master)](https://travis-ci.org/ivoba/generator-silverstripe-theme)
 
-A generator for a [Silverstripe](http://silverstripe.org) theme.
+A yeoman generator for a [Silverstripe](http://silverstripe.org) theme.
 
 Caution: its WIP atm
 
@@ -8,6 +8,7 @@ Caution: its WIP atm
 
 - Bower, Grunt integration via yeoman
 - [Ribs](https://github.com/nickpack/Ribs) Skeleton fork, Scss framework
+- [Foundation](http://foundation.zurb.com/)
 - compass
 - jshint
 - imagemin
@@ -44,6 +45,10 @@ So you can benefit from SilverStripe Requirements mechanism, especially when usi
             );
         }
 
+If you choose to use Foundation add this also:
+
+    $themeFolder . '/bower_components/foundation/js/foundation.js',
+
 ###Tasks
 
 The default grunt task is ```watch``` which will run ```compass watch```.
@@ -52,11 +57,8 @@ The default grunt task is ```watch``` which will run ```compass watch```.
 ## Todo
 
 - tests
-- Foundation theme
-- unfuddle jquery dependency since foundation 5 requires jquery2
 - different foundation versions
-- Bootstrap theme
-- theme choice
+- Bootstrap sass theme
 - make ftpush optional
 - ftpush server inquiry
 - ftpush credential inquiry

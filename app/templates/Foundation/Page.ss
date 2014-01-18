@@ -33,16 +33,22 @@
 </head>
 <body class="$ClassName<% if not $Menu(2) %> no-sidebar<% end_if %>"
       <% if $i18nScriptDirection %>dir="$i18nScriptDirection"<% end_if %>>
-<a href="$BaseHref" rel="home">
+<a href="$BaseHref" rel="home"/>
 <!--[if lt IE 9]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
+
 <% include Header %>
 <div class="row" role="main">
-    <div class="large-12 columns">
-        $Layout
+    <div class="large-12 columns off-canvas-wrap docs-wrap">
+        <div class="inner-wrap">
+            <% include  ResponsiveNavigation %>
+            $Layout
+            <a class="exit-off-canvas"></a>
+        </div>
     </div>
+</div>
 </div>
 <% include Footer %>
 </body>
