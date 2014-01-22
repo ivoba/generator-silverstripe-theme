@@ -1,14 +1,5 @@
-<div class="four columns">
-    <% include Navigation %>
-</div>
-<div class="ten columns">
-    <h3>$Title</h3>
-    <article>
-        <div class="content">$Content</div>
-    </article>
-    <% if $Form %>
-        <div class="row">
-                $Form
-        </div>
-    <% end_if %>
-</div>
+<h3>$Title</h3>
+<article>
+    <div class="content">$Content</div>
+</article>
+$Form

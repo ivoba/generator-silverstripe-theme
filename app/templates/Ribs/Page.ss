@@ -31,7 +31,7 @@
     <!-- endbuild -->
     <link rel="shortcut icon" href="$ThemeDir/images/favicon.ico"/>
 </head>
-<body class="$ClassName<% if not $Menu(2) %> no-sidebar<% end_if %>"
+<body class="$ClassName"
       <% if $i18nScriptDirection %>dir="$i18nScriptDirection"<% end_if %>>
 <a href="$BaseHref" rel="home">
 <!--[if lt IE 9]>
@@ -40,10 +40,11 @@
 <![endif]-->
 <div class="container clearfix">
     <% include Header %>
-    <div class="main" role="main">
-        <div class="inner typography line">
-            $Layout
-        </div>
+    <div class="four columns">
+        <% include Navigation %>
+    </div>
+    <div class="ten columns">
+       $Layout
     </div>
     <% include Footer %>
 </div>
