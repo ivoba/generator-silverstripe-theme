@@ -69,6 +69,7 @@ SilverstripeThemeGenerator.prototype.app = function app() {
     this.copy(this.frameworkDir+'/Layout/Page.ss', this.themeDir + 'templates/Layout/Page.ss');
     this.copy('main.js', this.themeDir + 'javascripts/main.js');
     this.copy('_variables.scss', this.themeDir + 'scss/_variables.scss');
+    this.copy('_variables.scss', this.themeDir + 'scss/_editor.scss');
     this.copy('jshintrc', this.themeDir + '.jshintrc');
 
     this.template('main.scss', this.themeDir + 'scss/main.scss');
