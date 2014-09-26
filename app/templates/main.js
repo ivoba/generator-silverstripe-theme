@@ -1,12 +1,13 @@
-$(function() {
-    app.init();
-});
-
 var app = {
-    init:function (options) {
+    init: function (options) {
+        this.log(options);
         this.log('code here');
     },
-    log:function (msg){
+    log: function (msg) {
         console.log(msg);
     }
 };
+
+$(function () {
+    app.init();
+});

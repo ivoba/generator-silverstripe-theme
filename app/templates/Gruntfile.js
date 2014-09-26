@@ -15,13 +15,19 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
             yeoman: {
-                silverstripe_root: '../../',
-                silverstripe_theme: './'
+                silverstripeRoot: '../../',
+                silverstripeTheme: './'
             },
             watch: {
                 compass: {
                     files: ['scss/{,*/}*.{scss,sass}'],
                     tasks: ['compass:server']
+                },
+                js: {
+                    tasks: ['jshint'],
+                    options: {
+                        livereload: true
+                    }
                 }
             },
             jshint: {
@@ -30,7 +36,8 @@ module.exports = function (grunt) {
                 },
                 all: [
                     'Gruntfile.js',
-                    'javascripts/{,*/}*.js'
+                    'javascripts/{,*/}*.js',
+                    '!javascripts/modernizr.js',
                 ]
             },
             compass: {
@@ -55,6 +62,7 @@ module.exports = function (grunt) {
                     }
                 }
             },
+    <% if (includeFtpush == true) { %>
             ftpush: {
                 theme: {
                     auth: {
@@ -62,12 +70,13 @@ module.exports = function (grunt) {
                         authKey: 'key1'
                     },
                     simple: true,
-                    src: '<%= yeoman.silverstripe_theme %>',
+                    src: '<%= yeoman.silverstripeTheme %>',
                     exclusions: ['.grunt/','.ftppass','.sass-cache', 'bower_components', 'scss', 'node_modules', '.bowerrc', '.jshintrc', 'package.json', 'bower.json', 'Gruntfile.js'],
                     dest: '<%%= themeDir %>',
                     keep: ['old']
                 }
             },
+    <% } %>
 //            responsive_images: {
 //                options: {
 //                    sizes: [
@@ -106,30 +115,7 @@ module.exports = function (grunt) {
 //                    ]
 //                }
 //            },
-            imagemin: {
-                dist: {
-                    files: [
-                        {
-                            expand: true,
-                            cwd: 'images',
-                            src: '{,*/}*.{png,jpg,jpeg}',
-                            dest: 'images'
-                        }
-                    ]
-                }
-            },
-            svgmin: {
-                dist: {
-                    files: [
-                        {
-                            expand: true,
-                            cwd: 'images',
-                            src: '{,*/}*.svg',
-                            dest: 'images'
-                        }
-                    ]
-                }
-            },
+            <% if (includeModernizr == true) { %>
             modernizr: {
                 devFile: 'bower_components/modernizr/modernizr.js',
                 outputFile: 'javascripts/modernizr.js',
@@ -139,6 +125,7 @@ module.exports = function (grunt) {
                 ],
                 uglify: true
             },
+            <% } %>
             bower: {
                 options: {
                     exclude: ['modernizr']
@@ -149,13 +136,13 @@ module.exports = function (grunt) {
     ;
 
     grunt.registerTask('deploy', [
-        'build',
-        'ftpush'
+        'build'<% if (includeFtpush == true) { %>,
+        'ftpush'<% } %>
     ]);
 
     grunt.registerTask('build', [
         'jshint',
-        'modernizr',
+        <% if (includeModernizr == true) { %>'modernizr',<% } %>
         'imagemin',
         'svgmin',
 //        'responsive_images:dist',

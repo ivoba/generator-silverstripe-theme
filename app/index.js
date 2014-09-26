@@ -36,17 +36,38 @@ SilverstripeThemeGenerator.prototype.askFor = function askFor() {
             message: "What SCSS framework would you like to use?",
             choices: [ "Ribs", "Foundation" ],
             filter: function( val ) { return val.toLowerCase(); }
+        },
+        {
+            type: 'checkbox',
+            name: 'features',
+            message: 'What more would you like?',
+            choices: [{
+                name: 'Ftpush',
+                value: 'includeFtpush',
+                checked: true
+            },{
+                name: 'Modernizr',
+                value: 'includeModernizr',
+                checked: true
+            }]
         }
     ];
 
     this.prompt(prompts, function (props) {
 
-        function hasFeature(feat) { return features.indexOf(feat) !== -1; }
-
         this.themeName = props.themeName;
         this.themeDir = 'themes/' + _.str.slugify(this.themeName) + '/';
         this.framework = props.framework;
         this.frameworkDir = _.str.capitalize(this.framework);
+
+        var features = props.features;
+
+        function hasFeature(feat) {
+            return features && features.indexOf(feat) !== -1;
+        }
+
+        this.includeFtpush = hasFeature('includeFtpush');
+        this.includeModernizr = hasFeature('includeModernizr');
 
         cb();
     }.bind(this));

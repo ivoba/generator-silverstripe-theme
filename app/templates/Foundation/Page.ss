@@ -26,9 +26,7 @@
     <!-- build:js /scripts/vendor/modernizr.js -->
     <script src="$ThemeDir/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
-    <!-- build:css(.tmp) /css/main.css -->
     <link rel="stylesheet" href="$ThemeDir/css/main.css"/>
-    <!-- endbuild -->
     <link rel="shortcut icon" href="$ThemeDir/images/favicon.ico"/>
 </head>
 <body class="$ClassName<% if not $Menu(2) %> no-sidebar<% end_if %>"

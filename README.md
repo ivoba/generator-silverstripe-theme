@@ -11,10 +11,11 @@ Caution: its WIP atm
 - [Foundation](http://foundation.zurb.com/)
 - compass
 - jshint
-- imagemin
-- svgmin
 - modernizr custom builds
 - [ftpush](https://github.com/inossidabile/grunt-ftpush)
+
+##Installation
+todo
 
 ## Getting Started
 
@@ -28,9 +29,17 @@ Then go to your created theme under
 
 and there you can run *grunt* or *bower* for this theme.
 
-In that way you can run multiple themes under yeoman.
+By calling Grunt from within the theme folder you can run multiple themes under yeoman.
 
-You best define your javascript in your PageController, using the Requirements.
+###Tasks
+
+The default grunt task is ```watch``` which will run ```compass watch```.
+
+### Disclaimer
+
+I dont use Javascript minify tasks here.
+I rely on the provided Silverstripe Minifier mechanims.
+So you best define your javascript in your PageController, using the Requirements.
 So you can benefit from SilverStripe Requirements mechanism, especially when using modules.
 
     public function init()
@@ -49,10 +58,11 @@ If you choose to use Foundation add this also:
 
     $themeFolder . '/bower_components/foundation/js/foundation.js',
 
-###Tasks
+For Css i let Compass do the work.
 
-The default grunt task is ```watch``` which will run ```compass watch```.
+I also left out image optimizers, as they often dont work :/
 
+If you use git dont forget to edit your .gitignore and add folder like bower_components, .sass-cache, node_modules (this is actually a task for this generator ;))
 
 ## Todo
 

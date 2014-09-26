@@ -23,12 +23,8 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <!-- build:js /scripts/vendor/modernizr.js -->
     <script src="$ThemeDir/bower_components/modernizr/modernizr.js"></script>
-    <!-- endbuild -->
-    <!-- build:css(.tmp) /css/main.css -->
     <link rel="stylesheet" href="$ThemeDir/css/main.css"/>
-    <!-- endbuild -->
     <link rel="shortcut icon" href="$ThemeDir/images/favicon.ico"/>
 </head>
 <body class="$ClassName"
