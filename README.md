@@ -66,6 +66,9 @@ The default grunt task is ```watch``` which will run ```compass watch```.
 - ftpush for app(mysite) & theme
 - responsive_images for assets
 - copy dist
+- responsiveNavigation.ss
+- css&js strategy: use SilverStripe buildIn minimizer, communicate
+- js strategy remove <!-- build:js /scripts/vendor/modernizr.js -->
 
 
 ## License
