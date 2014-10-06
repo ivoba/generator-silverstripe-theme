@@ -24,10 +24,8 @@ module.exports = function (grunt) {
                     tasks: ['compass:server']
                 },
                 js: {
-                    tasks: ['jshint'],
-                    options: {
-                        livereload: true
-                    }
+                    files: ['javascripts/{,*/}*.js'],
+                    tasks: ['jshint:all']
                 }
             },
             jshint: {

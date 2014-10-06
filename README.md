@@ -47,11 +47,12 @@ So you can benefit from SilverStripe Requirements mechanism, especially when usi
             parent::init();
             $themeFolder = $this->ThemeDir();
             Requirements::combine_files(
-                'scripts.js', array(
-                    $themeFolder . '/bower_components/jquery/jquery.min.js',
-                    $themeFolder . '/javascripts/main.js'
-                )
-            );
+                                'scripts.js', array(
+                                                $themeFolder . '/javascripts/modernizr.js',
+                                                $themeFolder . '/bower_components/jquery/dist/jquery.min.js',
+                                                $themeFolder . '/javascripts/main.js'
+                                            )
+                    );
         }
 
 If you choose to use Foundation add this also:
@@ -67,9 +68,9 @@ If you use git dont forget to edit your .gitignore and add folder like bower_com
 ## Todo
 
 - tests
-- different foundation versions
+- custom theme dir, f.e if you use app with templates integrated
+- gitignore handling as the git ognore is not part of the dir but of parent SS installation
 - Bootstrap sass theme
-- make ftpush optional
 - ftpush server inquiry
 - ftpush credential inquiry
 - ftpush credential file to gitignore
@@ -77,7 +78,7 @@ If you use git dont forget to edit your .gitignore and add folder like bower_com
 - responsive_images for assets
 - copy dist
 - responsiveNavigation.ss
-- css&js strategy: use SilverStripe buildIn minimizer, communicate
+- css&js strategy: use SilverStripe buildIn, minimizer
 - js strategy remove <!-- build:js /scripts/vendor/modernizr.js -->
 
 

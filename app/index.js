@@ -35,21 +35,26 @@ SilverstripeThemeGenerator.prototype.askFor = function askFor() {
             name: "framework",
             message: "What SCSS framework would you like to use?",
             choices: [ "Ribs", "Foundation" ],
-            filter: function( val ) { return val.toLowerCase(); }
+            filter: function (val) {
+                return val.toLowerCase();
+            }
         },
         {
             type: 'checkbox',
             name: 'features',
             message: 'What more would you like?',
-            choices: [{
-                name: 'Ftpush',
-                value: 'includeFtpush',
-                checked: true
-            },{
-                name: 'Modernizr',
-                value: 'includeModernizr',
-                checked: true
-            }]
+            choices: [
+                {
+                    name: 'Ftpush',
+                    value: 'includeFtpush',
+                    checked: true
+                },
+                {
+                    name: 'Modernizr',
+                    value: 'includeModernizr',
+                    checked: true
+                }
+            ]
         }
     ];
 
@@ -83,11 +88,11 @@ SilverstripeThemeGenerator.prototype.app = function app() {
     this.mkdir(this.themeDir + 'images');
     this.mkdir(this.themeDir + 'scss');
 
-    this.copy(this.frameworkDir+'/Page.ss', this.themeDir + 'templates/Page.ss');
-    this.copy(this.frameworkDir+'/Includes/Footer.ss', this.themeDir + 'templates/Includes/Footer.ss');
-    this.copy(this.frameworkDir+'/Includes/Header.ss', this.themeDir + 'templates/Includes/Header.ss');
-    this.copy(this.frameworkDir+'/Includes/Navigation.ss', this.themeDir + 'templates/Includes/Navigation.ss');
-    this.copy(this.frameworkDir+'/Layout/Page.ss', this.themeDir + 'templates/Layout/Page.ss');
+    this.copy(this.frameworkDir + '/Page.ss', this.themeDir + 'templates/Page.ss');
+    this.copy(this.frameworkDir + '/Includes/Footer.ss', this.themeDir + 'templates/Includes/Footer.ss');
+    this.copy(this.frameworkDir + '/Includes/Header.ss', this.themeDir + 'templates/Includes/Header.ss');
+    this.copy(this.frameworkDir + '/Includes/Navigation.ss', this.themeDir + 'templates/Includes/Navigation.ss');
+    this.copy(this.frameworkDir + '/Layout/Page.ss', this.themeDir + 'templates/Layout/Page.ss');
     this.copy('main.js', this.themeDir + 'javascripts/main.js');
     this.copy('_variables.scss', this.themeDir + 'scss/_variables.scss');
     this.copy('_variables.scss', this.themeDir + 'scss/_editor.scss');
@@ -96,7 +101,9 @@ SilverstripeThemeGenerator.prototype.app = function app() {
     this.template('main.scss', this.themeDir + 'scss/main.scss');
     this.template('_package.json', this.themeDir + 'package.json');
     this.template('_bower.json', this.themeDir + 'bower.json');
-
+    if (this.includeFtpush === true) {
+        this.template('_ftppass', this.themeDir + '.ftppass');
+    }
     this.template('Gruntfile.js', this.themeDir + 'Gruntfile.js');
 
 };

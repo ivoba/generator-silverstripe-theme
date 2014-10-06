@@ -23,7 +23,6 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script src="$ThemeDir/bower_components/modernizr/modernizr.js"></script>
     <link rel="stylesheet" href="$ThemeDir/css/main.css"/>
     <link rel="shortcut icon" href="$ThemeDir/images/favicon.ico"/>
 </head>
