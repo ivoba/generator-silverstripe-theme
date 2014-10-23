@@ -11,7 +11,18 @@ var SilverstripeThemeGenerator = module.exports = function SilverstripeThemeGene
 
     this.on('end', function () {
         process.chdir(this.themeDir);
-        this.installDependencies({ skipInstall: options['skip-install'] });
+        this.installDependencies({
+            skipInstall: options['skip-install'],
+            callback: function() {
+                // Emit a new event - dependencies installed
+                this.emit('dependenciesInstalled');
+            }.bind(this)
+        });
+    });
+
+    // Now you can bind to the dependencies installed event
+    this.on('dependenciesInstalled', function() {
+        this.spawnCommand('grunt', ['compass']);
     });
 
     this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
