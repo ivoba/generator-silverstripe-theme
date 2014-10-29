@@ -1,4 +1,5 @@
 @import '_variables.scss';
+@import 'editor.scss';
 <% if (framework == 'ribs') { %>@import 'ribs/src/scss/Ribs.scss';<% } %>
 <% if (framework == 'foundation') { %>@import 'foundation/scss/foundation.scss';<% } %>
 
